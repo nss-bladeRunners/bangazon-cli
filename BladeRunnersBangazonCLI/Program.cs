@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BladeRunnersBangazonCLI.Views;
+using System;
 
 namespace BladeRunnersBangazonCLI
 {
@@ -10,6 +7,32 @@ namespace BladeRunnersBangazonCLI
     {
         static void Main(string[] args)
         {
+            var mainMenu = new MainView();
+
+            var run = true;
+            while (run)
+            {
+                ConsoleKeyInfo userInput = mainMenu.MainMenu();
+
+                switch (userInput.KeyChar)
+                {
+                    case '0':
+                        run = false;
+                        break;
+
+                    case '1':
+
+                        break;
+
+                    case '2': 
+
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
         }
     }
 }
