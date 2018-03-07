@@ -1,5 +1,4 @@
-﻿using BladeRunnersBangazonCLI.DataAccess.Models;
-using BladeRunnersBangazonCLI.Database.DataAccess.Models;
+﻿using BladeRunnersBangazonCLI.Database.DataAccess.Models;
 using BladeRunnersBangazonCLI.Views;
 using System;
 
@@ -29,6 +28,7 @@ namespace BladeRunnersBangazonCLI
                     case '2':
                         Console.Clear();
                         Console.WriteLine("Select active customer:");
+                        Console.ReadLine();
 
                         var activeCustomerQuery = new ActiveCustomerQuery();
                         var activeCustomers = activeCustomerQuery.GetActiveCustomer();
