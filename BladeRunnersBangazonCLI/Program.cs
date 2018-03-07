@@ -1,4 +1,5 @@
 ﻿using BladeRunnersBangazonCLI.DataAccess.Models;
+using BladeRunnersBangazonCLI.Database.DataAccess.Models;
 using BladeRunnersBangazonCLI.Views;
 using System;
 
