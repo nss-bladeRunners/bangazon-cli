@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BladeRunnersBangazonCLI.DataAccess.Models
+namespace BladeRunnersBangazonCLI.Database.DataAccess.Models
 {
     class ActiveCustomerQuery
     {
@@ -21,7 +21,8 @@ namespace BladeRunnersBangazonCLI.DataAccess.Models
                 connection.Open();
 
                 var cmd = connection.CreateCommand();
-                cmd.CommandText = @"";
+                cmd.CommandText = @"select c.CustomerId, c.FirstName, c.LastName
+	                                    from Customers c;";
 
                 var reader = cmd.ExecuteReader();
 
@@ -31,7 +32,9 @@ namespace BladeRunnersBangazonCLI.DataAccess.Models
                 {
                     var customer = new ActiveCustomer
                     {
-
+                        FirstName = reader["FirstName"].ToString(),
+                        LastName = reader["LastName"].ToString(),
+                        CustomerId = int.Parse(reader["CustomerId"].ToString())
                     };
 
                     activeCustomers.Add(customer);
