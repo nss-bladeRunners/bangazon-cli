@@ -48,11 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DataAccess\Models\Product.cs" />
     <Compile Include="Database\DataAccess\Queries\ActiveCustomerQuery.cs" />
     <Compile Include="Database\DataAccess\Models\ActiveCustomer.cs" />
     <Compile Include="Database\DataAccess\Queries\CreateNewCustomer.cs" />
     <Compile Include="Database\DataAccess\Models\NewCustomer.cs" />
+    <Compile Include="Database\DataAccess\Queries\InsertNewProduct.cs" />
     <Compile Include="Views\AllCustomersView.cs" />
+    <Compile Include="Views\CreateProductView.cs" />
     <Compile Include="Views\CustomerSubMenuView.cs" />
     <Compile Include="Database\DataAccess\Queries\PaymentQueries.cs" />
     <Compile Include="Database\DataAccess\Models\PaymentCreationModel.cs" />
@@ -61,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\MainView.cs" />
     <Compile Include="Views\PaymentView.cs" />
+    <Compile Include="Views\SellerMenuView.cs" />
     <Compile Include="Views\View.cs" />
   </ItemGroup>
   <ItemGroup>
