@@ -13,43 +13,36 @@ namespace BladeRunnersBangazonCLI
 
         static void Main(string[] args)
         {
-            //var mainMenu = new MainView();
+            var mainMenu = new MainView();
 
-            //var run = true;
-            //while (run)
-            //{
-            //    ConsoleKeyInfo userInput = mainMenu.MainMenu();
+            var run = true;
+            while (run)
+            {
+                ConsoleKeyInfo userInput = mainMenu.MainMenu();
 
-            //    switch (userInput.KeyChar)
-            //    {
-            //        case '0':
-            //            run = false;
-            //            break;
+                switch (userInput.KeyChar)
+                {
+                    case '0':
+                        run = false;
+                        break;
 
-            //        case '1':
+                    case '1':
                         var newCreateCustomer = new NewCustomerView();
 
-                        var customerFirstName = newCreateCustomer.GetFirstName();
-                        var customerLastName = newCreateCustomer.GetLastName();
-                        var customerStreet = newCreateCustomer.GetStreet();
-                        var customerCity = newCreateCustomer.GetCity();
-                        var customerState = newCreateCustomer.GetState();
-                        var customerZip = newCreateCustomer.GetZip();
-                        var customerPhone = newCreateCustomer.GetPhone();
-                        var customerEmail = newCreateCustomer.GetEmail();
+                        //var customerFirstName = newCreateCustomer.GetFirstName();
+                        //var customerLastName = newCreateCustomer.GetLastName();
+                        //var customerStreet = newCreateCustomer.GetStreet();
+                        //var customerCity = newCreateCustomer.GetCity();
+                        //var customerState = newCreateCustomer.GetState();
+                        //var customerZip = newCreateCustomer.GetZip();
+                        //var customerPhone = newCreateCustomer.GetPhone();
+                        //var customerEmail = newCreateCustomer.GetEmail();
 
                         var customerInfo = new CreateNewCustomer();
                         customerInfo.CreateCustomer(customerFirstName, customerLastName, customerStreet, customerCity, customerState, customerZip, customerPhone, customerEmail);
-            //            break;
+                        break;
 
-            //        case '2': 
-
-            //            break;
-
-            //        default:
-            //            break;
-            //    }
-            //}
+                    case '2':
 
                         var viewAllCustomers = new AllCustomersView();
                         _selectedCustomer = viewAllCustomers.SelectActiveCustomer();
@@ -68,11 +61,11 @@ namespace BladeRunnersBangazonCLI
                             case '2': //Seller Menu
                                 break;
                         }
-
-                break;
-            var paymentView = new PaymentView();
-            paymentView.AddPayment(); 
+                        break;
+                }
+            }
         }
     }
 }
+    
 
