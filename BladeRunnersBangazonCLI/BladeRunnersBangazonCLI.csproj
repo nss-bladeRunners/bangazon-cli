@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DataAccess\Queries\CreateNewCustomer.cs" />
-    <Compile Include="Database\DataAccess\Models\Customer.cs" />
+    <Compile Include="Database\DataAccess\Models\NewCustomer.cs" />
     <Compile Include="Views\NewCustomerView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

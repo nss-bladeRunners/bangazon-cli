@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BladeRunnersBangazonCLI.Models
 {
-    class Customer
+    class NewCustomer
     {
+        public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Street { get; set; }
