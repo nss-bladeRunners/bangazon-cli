@@ -75,7 +75,10 @@ namespace BladeRunnersBangazonCLI
                                         var newProduct = addProduct.AddNewProduct(customerId, productTitle, productPrice, productQuantity);
                                         break;
 
-                                    case '2':
+                                    case '2': //Edit Product
+                                        //Product _selectedProduct;
+                                        var viewAllProductsForSeller = new AllProductsForSellerView();
+                                        var selectedProduct = viewAllProductsForSeller.SelectProduct(_selectedCustomer);
                                         break;
 
                                     default: //Default for Seller Menu

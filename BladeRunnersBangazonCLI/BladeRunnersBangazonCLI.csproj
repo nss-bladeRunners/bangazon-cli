@@ -54,7 +54,9 @@
     <Compile Include="Database\DataAccess\Queries\CreateNewCustomer.cs" />
     <Compile Include="Database\DataAccess\Models\NewCustomer.cs" />
     <Compile Include="Database\DataAccess\Queries\InsertNewProduct.cs" />
+    <Compile Include="Database\DataAccess\Queries\ProductBySellerQuery.cs" />
     <Compile Include="Views\AllCustomersView.cs" />
+    <Compile Include="Views\AllProductsForSellerView.cs" />
     <Compile Include="Views\CreateProductView.cs" />
     <Compile Include="Views\CustomerSubMenuView.cs" />
     <Compile Include="Database\DataAccess\Queries\PaymentQueries.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="Views\MainView.cs" />
     <Compile Include="Views\PaymentView.cs" />
     <Compile Include="Views\SellerMenuView.cs" />
+    <Compile Include="Views\UpdateProductView.cs" />
     <Compile Include="Views\View.cs" />
   </ItemGroup>
   <ItemGroup>
