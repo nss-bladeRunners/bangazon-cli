@@ -62,6 +62,5 @@ _/_____|__(___(__/___/_/___/_(___ _/_____(__)_";
             var menu = string.Join(Environment.NewLine, _menuItems);
             return $"{menu}{Environment.NewLine}> ";
         }
-
     }
 }
