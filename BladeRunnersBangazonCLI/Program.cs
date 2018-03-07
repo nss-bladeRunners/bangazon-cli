@@ -1,4 +1,5 @@
-﻿using BladeRunnersBangazonCLI.Views;
+﻿using BladeRunnersBangazonCLI.DataAccess.Models;
+using BladeRunnersBangazonCLI.Views;
 using System;
 
 
@@ -9,7 +10,6 @@ namespace BladeRunnersBangazonCLI
         static void Main(string[] args)
         {
             var mainMenu = new MainView();
-            ActiveCustomer activeCustomer = new ActiveCustomer(db);
 
             var run = true;
             while (run)
@@ -28,13 +28,15 @@ namespace BladeRunnersBangazonCLI
                     case '2':
                         Console.Clear();
                         Console.WriteLine("Select active customer:");
-                        SelectActiveCustomer.GetActiveCustomer(activeCustomer);
+
+                        var activeCustomerQuery = new ActiveCustomerQuery();
+                        var activeCustomers = activeCustomerQuery.GetActiveCustomer();
                         break;
+
                     default:
                         break;
                 }
             }
-
         }
     }
 }
