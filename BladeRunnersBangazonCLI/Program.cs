@@ -13,20 +13,20 @@ namespace BladeRunnersBangazonCLI
 
         static void Main(string[] args)
         {
-            var mainMenu = new MainView();
+            //var mainMenu = new MainView();
 
-            var run = true;
-            while (run)
-            {
-                ConsoleKeyInfo userInput = mainMenu.MainMenu();
+            //var run = true;
+            //while (run)
+            //{
+            //    ConsoleKeyInfo userInput = mainMenu.MainMenu();
 
-                switch (userInput.KeyChar)
-                {
-                    case '0':
-                        run = false;
-                        break;
+            //    switch (userInput.KeyChar)
+            //    {
+            //        case '0':
+            //            run = false;
+            //            break;
 
-                    case '1':
+            //        case '1':
                         var newCreateCustomer = new NewCustomerView();
 
                         var customerFirstName = newCreateCustomer.GetFirstName();
@@ -40,9 +40,16 @@ namespace BladeRunnersBangazonCLI
 
                         var customerInfo = new CreateNewCustomer();
                         customerInfo.CreateCustomer(customerFirstName, customerLastName, customerStreet, customerCity, customerState, customerZip, customerPhone, customerEmail);
-                        break;
+            //            break;
 
-                    case '2':
+            //        case '2': 
+
+            //            break;
+
+            //        default:
+            //            break;
+            //    }
+            //}
 
                         var viewAllCustomers = new AllCustomersView();
                         _selectedCustomer = viewAllCustomers.SelectActiveCustomer();
@@ -61,13 +68,10 @@ namespace BladeRunnersBangazonCLI
                             case '2': //Seller Menu
                                 break;
                         }
-                        break;
 
-                    default:
-                        break;
-                }
                 break;
-            }
+            var paymentView = new PaymentView();
+            paymentView.AddPayment(); 
         }
     }
 }
