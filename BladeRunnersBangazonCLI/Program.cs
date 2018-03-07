@@ -1,6 +1,7 @@
 ﻿using BladeRunnersBangazonCLI.Views;
 using System;
 
+
 namespace BladeRunnersBangazonCLI
 {
     class Program
@@ -8,6 +9,7 @@ namespace BladeRunnersBangazonCLI
         static void Main(string[] args)
         {
             var mainMenu = new MainView();
+            ActiveCustomer activeCustomer = new ActiveCustomer(db);
 
             var run = true;
             while (run)
@@ -21,13 +23,13 @@ namespace BladeRunnersBangazonCLI
                         break;
 
                     case '1':
-
                         break;
 
-                    case '2': 
-
+                    case '2':
+                        Console.Clear();
+                        Console.WriteLine("Select active customer:");
+                        SelectActiveCustomer.GetActiveCustomer(activeCustomer);
                         break;
-
                     default:
                         break;
                 }
