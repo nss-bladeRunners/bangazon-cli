@@ -3,12 +3,13 @@ using BladeRunnersBangazonCLI.Database.DataAccess.Models;
 using BladeRunnersBangazonCLI.Database.DataAccess.Queries;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BladeRunnersBangazonCLI.Views
 {
     class AllProductsForSellerView
     {
-        public ConsoleKeyInfo SelectProduct(ActiveCustomer activeCustomer)
+        public Product SelectProduct(ActiveCustomer activeCustomer)
         {
             var ProductList = new List<Product>();
             var productQuery = new ProductBySellerQuery();
@@ -27,10 +28,12 @@ namespace BladeRunnersBangazonCLI.Views
 
             Console.Write(productsForSellerView.GetFullMenu());
 
-            ConsoleKeyInfo userOption = Console.ReadKey();
-            return userOption;
+
+            int productSelected = int.Parse(Console.ReadLine().ToString());
+            var selectedProduct = ProductList[productSelected - 1];
+
+            return ProductList.First<Product>(x => x == selectedProduct);
 
         }
-
     }
 }
