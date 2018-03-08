@@ -59,6 +59,10 @@ namespace BladeRunnersBangazonCLI
                         switch (userOption.KeyChar)
                         {
                             case '1': //Buyer Menu
+                                var buyerMenu = new BuyerMenuView();
+                                buyerMenu.BuyerMenu(_selectedCustomer);
+
+
                                 break;
                             case '2': //Seller Menu
                                 var sellerMenu = new SellerMenuView();
