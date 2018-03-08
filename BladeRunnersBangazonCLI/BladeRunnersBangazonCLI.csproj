@@ -55,6 +55,7 @@
     <Compile Include="Database\DataAccess\Models\NewCustomer.cs" />
     <Compile Include="Database\DataAccess\Queries\InsertNewProduct.cs" />
     <Compile Include="Views\AllCustomersView.cs" />
+    <Compile Include="Views\BuyerMenuView.cs" />
     <Compile Include="Views\CreateProductView.cs" />
     <Compile Include="Views\CustomerSubMenuView.cs" />
     <Compile Include="Database\DataAccess\Queries\PaymentQueries.cs" />
