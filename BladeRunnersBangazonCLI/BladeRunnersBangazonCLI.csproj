@@ -48,12 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DataAccess\Models\Orders.cs" />
     <Compile Include="Database\DataAccess\Models\Product.cs" />
+    <Compile Include="Database\DataAccess\Models\ProductOrder.cs" />
     <Compile Include="Database\DataAccess\Queries\ActiveCustomerQuery.cs" />
     <Compile Include="Database\DataAccess\Models\ActiveCustomer.cs" />
     <Compile Include="Database\DataAccess\Queries\CreateNewCustomer.cs" />
     <Compile Include="Database\DataAccess\Models\NewCustomer.cs" />
     <Compile Include="Database\DataAccess\Queries\InsertNewProduct.cs" />
+    <Compile Include="Database\DataAccess\Queries\NewCustomerOrder.cs" />
+    <Compile Include="Database\DataAccess\Queries\ProductsListQuery.cs" />
+    <Compile Include="Views\AddProductToOrderView.cs" />
     <Compile Include="Views\AllCustomersView.cs" />
     <Compile Include="Views\CreateProductView.cs" />
     <Compile Include="Views\CustomerSubMenuView.cs" />
@@ -72,6 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\Scripts\CreateDatabase.sql" />
+    <Content Include="Database\Scripts\CreateOrderTable.sql" />
+    <Content Include="Database\Scripts\CreatePaymentTableWithData.sql" />
+    <Content Include="Database\Scripts\CreateProductTable.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
