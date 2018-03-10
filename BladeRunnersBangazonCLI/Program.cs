@@ -104,7 +104,7 @@ namespace BladeRunnersBangazonCLI
                                             case '3':
                                                 var quantity = updateProductView.UpdateQuantity();
                                                 var updateProductQuantityQuery = new UpdateProductQuery();
-                                                var executeUpdateQuantity = updateProductQuantityQuery.UpdateProductPrice(selectedProduct.ProductId, quantity);
+                                                var executeUpdateQuantity = updateProductQuantityQuery.UpdateProductQuantity(selectedProduct.ProductId, quantity);
                                                 break;
 
                                             default: //Default for Update Product Menu
