@@ -29,6 +29,10 @@ namespace BladeRunnersBangazonCLI.Views
             Console.Write(viewAllCustomers.GetFullMenu());
 
             var customerSelected = int.Parse(Console.ReadLine().ToString());
+            if (customerSelected == 0)
+            {
+                return null;
+            }
             var selectedCustomer = allCustomers[customerSelected - 1];
 
             return allCustomers.First<ActiveCustomer>(x => x == selectedCustomer);

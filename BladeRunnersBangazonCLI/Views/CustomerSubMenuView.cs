@@ -10,8 +10,8 @@ namespace BladeRunnersBangazonCLI.Views
 
             mainMenu.AddMenuText("");
             mainMenu.AddMenuOption("Buyer Menu")
-            .AddMenuOption("Seller Menu")
-            .AddMenuText("Press 0 to exit.");
+            .AddMenuOption("Seller Menu");
+            //.AddMenuText("Press 0 to exit.");
 
             Console.Write(mainMenu.GetFullMenu());
             ConsoleKeyInfo userOption = Console.ReadKey();

@@ -11,8 +11,8 @@ namespace BladeRunnersBangazonCLI.Views
             sellerMenu.AddMenuOption("Add a Product")
             .AddMenuOption("Edit a Product")
             .AddMenuOption("Delete a Product")
-            .AddMenuOption("View Revenue Report")
-            .AddMenuText("Press 0 to exit.");
+            .AddMenuOption("View Revenue Report");
+            //.AddMenuText("Press 0 to exit.");
 
             Console.Write(sellerMenu.GetFullMenu());
             ConsoleKeyInfo userOption = Console.ReadKey();
