@@ -112,6 +112,11 @@ namespace BladeRunnersBangazonCLI
                                         }
                                         break;
 
+                                    case '3': //Delete Product
+                                        viewAllProductsForSeller = new AllProductsForSellerView();
+                                        viewAllProductsForSeller.SelectProduct(_selectedCustomer);
+                                        break;
+
                                     default: //Default for Seller Menu
                                         break;
                                 }
