@@ -56,14 +56,11 @@
     <Compile Include="Database\DataAccess\Queries\CreateNewCustomer.cs" />
     <Compile Include="Database\DataAccess\Models\NewCustomer.cs" />
     <Compile Include="Database\DataAccess\Queries\InsertNewProduct.cs" />
-<<<<<<< HEAD
     <Compile Include="Database\DataAccess\Queries\NewCustomerOrder.cs" />
     <Compile Include="Database\DataAccess\Queries\ProductsListQuery.cs" />
     <Compile Include="Views\AddProductToOrderView.cs" />
-=======
     <Compile Include="Database\DataAccess\Queries\UpdateProductQuery.cs" />
     <Compile Include="Database\DataAccess\Queries\ProductBySellerQuery.cs" />
->>>>>>> d135168291e11877745c0e2cdda246467c5b9a42
     <Compile Include="Views\AllCustomersView.cs" />
     <Compile Include="Views\AllProductsForSellerView.cs" />
     <Compile Include="Views\BuyerMenuView.cs" />
@@ -85,10 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\Scripts\CreateDatabase.sql" />
-<<<<<<< HEAD
     <Content Include="Database\Scripts\CreateOrderTable.sql" />
-=======
->>>>>>> d135168291e11877745c0e2cdda246467c5b9a42
     <Content Include="Database\Scripts\CreatePaymentTableWithData.sql" />
     <Content Include="Database\Scripts\CreateProductTable.sql" />
   </ItemGroup>
