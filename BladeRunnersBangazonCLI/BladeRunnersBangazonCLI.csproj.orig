@@ -57,8 +57,11 @@
     <Compile Include="Database\DataAccess\Queries\UpdateProductQuery.cs" />
     <Compile Include="Database\DataAccess\Queries\ProductBySellerQuery.cs" />
     <Compile Include="Views\AllCustomersView.cs" />
+<<<<<<< HEAD
     <Compile Include="Views\AllProductsForSellerView.cs" />
+=======
     <Compile Include="Views\BuyerMenuView.cs" />
+>>>>>>> master
     <Compile Include="Views\CreateProductView.cs" />
     <Compile Include="Views\CustomerSubMenuView.cs" />
     <Compile Include="Database\DataAccess\Queries\PaymentQueries.cs" />
@@ -77,8 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\Scripts\CreateDatabase.sql" />
-    <Content Include="Database\Scripts\CreatePaymentTableWithData.sql" />
-    <Content Include="Database\Scripts\CreateProductTable.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

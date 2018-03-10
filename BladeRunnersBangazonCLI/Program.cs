@@ -79,7 +79,37 @@ namespace BladeRunnersBangazonCLI
                                         var newProduct = addProduct.AddNewProduct(customerId, productTitle, productPrice, productQuantity);
                                         break;
 
-                                    case '2':
+                                    case '2': //Edit Product
+                                        //Product _selectedProduct;
+                                        var viewAllProductsForSeller = new AllProductsForSellerView();
+                                        var selectedProduct = viewAllProductsForSeller.SelectProduct(_selectedCustomer);
+                                        var updateProductView = new UpdateProductView();
+
+                                        ConsoleKeyInfo updateProduct = updateProductView.UpdateProductMenu(selectedProduct);
+                                        //ConsoleKeyInfo selectedProductInput = sellerMenu.SellerMenu(updateProduct);
+                                        switch (updateProduct.KeyChar)
+                                        {
+                                            case '1':
+                                                var title = updateProductView.UpdateTitle();
+                                                var updateProductTitleQuery = new UpdateProductQuery();
+                                                var executeUpdateTitle = updateProductTitleQuery.UpdateProductTitle(selectedProduct.ProductId, title);
+                                                break;
+
+                                            case '2':
+                                                var price = updateProductView.UpdatePrice();
+                                                var updateProductPriceQuery = new UpdateProductQuery();
+                                                var executeUpdatePrice = updateProductPriceQuery.UpdateProductPrice(selectedProduct.ProductId, price);
+                                                break;
+
+                                            case '3':
+                                                var quantity = updateProductView.UpdateQuantity();
+                                                var updateProductQuantityQuery = new UpdateProductQuery();
+                                                var executeUpdateQuantity = updateProductQuantityQuery.UpdateProductQuantity(selectedProduct.ProductId, quantity);
+                                                break;
+
+                                            default: //Default for Update Product Menu
+                                                break;
+                                        }
                                         break;
 
                                     default: //Default for Seller Menu
