@@ -114,7 +114,10 @@ namespace BladeRunnersBangazonCLI
 
                                     case '3': //Delete Product
                                         viewAllProductsForSeller = new AllProductsForSellerView();
-                                        viewAllProductsForSeller.SelectProduct(_selectedCustomer);
+                                        var productToDelete = viewAllProductsForSeller.SelectProduct(_selectedCustomer);
+                                        var deleteProduct = new DeleteProductQuery();
+                                        var executeDeleteProduct = deleteProduct.DeleteProduct(productToDelete.ProductId);
+
                                         break;
 
                                     default: //Default for Seller Menu

@@ -53,6 +53,7 @@
     <Compile Include="Database\DataAccess\Models\ActiveCustomer.cs" />
     <Compile Include="Database\DataAccess\Queries\CreateNewCustomer.cs" />
     <Compile Include="Database\DataAccess\Models\NewCustomer.cs" />
+    <Compile Include="Database\DataAccess\Queries\DeleteProductQuery.cs" />
     <Compile Include="Database\DataAccess\Queries\InsertNewProduct.cs" />
     <Compile Include="Database\DataAccess\Queries\UpdateProductQuery.cs" />
     <Compile Include="Database\DataAccess\Queries\ProductBySellerQuery.cs" />
