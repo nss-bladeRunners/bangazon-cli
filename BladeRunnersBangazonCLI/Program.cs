@@ -80,13 +80,11 @@ namespace BladeRunnersBangazonCLI
                                         break;
 
                                     case '2': //Edit Product
-                                        //Product _selectedProduct;
                                         var viewAllProductsForSeller = new AllProductsForSellerView();
                                         var selectedProduct = viewAllProductsForSeller.SelectProduct(_selectedCustomer);
                                         var updateProductView = new UpdateProductView();
 
                                         ConsoleKeyInfo updateProduct = updateProductView.UpdateProductMenu(selectedProduct);
-                                        //ConsoleKeyInfo selectedProductInput = sellerMenu.SellerMenu(updateProduct);
                                         switch (updateProduct.KeyChar)
                                         {
                                             case '1':
