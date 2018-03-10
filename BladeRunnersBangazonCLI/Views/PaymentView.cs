@@ -1,52 +1,49 @@
 ﻿using BladeRunnersBangazonCLI.Database.Queries;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BladeRunnersBangazonCLI.Views
 {
     class PaymentView
     {
-        public void AddPayment()
+        public void CreatePayment(int activeCustomerId)
         {
+            var db = new PaymentQueries(); 
+
             var payment = new PaymentCreationModel();
-            var db = new PaymentQueries();
-            //TODO: Add buyer menu instead of main menu
-            var mainMenu = new MainView(); 
+            payment.Type = GetPaymentType();
+            payment.AccountNumber = GetAccountNumber();
+            payment.CustomerId = activeCustomerId;
+            db.AddPayment(payment.Type, payment.AccountNumber, payment.CustomerId);
+        }
 
-            payment.CustomerId = 1;
+        public string GetPaymentType()
+        {
+            var paymentOption = new View();
+            paymentOption.AddMenuText("");
+            paymentOption.AddMenuText("Enter the payment type:");
 
-            Console.WriteLine("");
-            Console.WriteLine("@Add a Payment Method");
-            Console.WriteLine("");
+            Console.Write(paymentOption.GetFullMenu());
 
-            Console.WriteLine("What type of account is this?");
-            payment.Type = Console.ReadLine();
+            var paymentType = Console.ReadLine();
 
-            Console.WriteLine("What is the account number?");
-            payment.AccountNumber = Console.ReadLine();
+            return paymentType;
+        }
 
-            Console.WriteLine($"Would you like to add Payment Type: {payment.Type} with the account number {payment.AccountNumber}? (Y/N)");
+        public string GetAccountNumber()
+        {
+            var accountNumberOption = new View();
+            accountNumberOption.AddMenuText("");
+            accountNumberOption.AddMenuText("Enter the account number:");
 
-            if (Console.ReadLine().ToUpper() == "Y")
-            {
-                db.AddPayment(payment.Type, payment.AccountNumber, payment.CustomerId);
-                //TODO: Add code to move back to the Buyer screen
-                mainMenu.MainMenu();
-                
-            }
-            else
-            {
-                Console.WriteLine("Exit payment entry? (Y/N)");
+            Console.Write(accountNumberOption.GetFullMenu());
 
-                if (Console.ReadLine().ToUpper() == "Y")
-                {
-                    //TODO: Add code to move back to the Buyer screen
-                    mainMenu.MainMenu();
-                }
-                else
-                {
-                    AddPayment(); 
-                }
-            }            
+            var accountNumber = Console.ReadLine();
+
+            return accountNumber;
         }
     }
 }
