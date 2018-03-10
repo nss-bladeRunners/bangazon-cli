@@ -18,7 +18,8 @@ namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 
                 cmd.CommandText = @"select *
                                     from Products p right join Customers c
-                                    on p.SellerId = @CustomerId";
+                                    on p.SellerId = c.CustomerId
+                                    where p.SellerId = @CustomerId";
 
                 var CustomerIdParam = new SqlParameter("@CustomerId", System.Data.SqlDbType.Int);
                 CustomerIdParam.Value = customerId;
