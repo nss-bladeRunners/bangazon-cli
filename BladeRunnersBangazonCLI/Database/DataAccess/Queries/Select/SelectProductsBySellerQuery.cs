@@ -5,11 +5,11 @@ using System.Data.SqlClient;
 
 namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 {
-    class ProductBySellerQuery
+    class SelectProductsBySellerQuery
     {
         readonly string _connectionString = ConfigurationManager.ConnectionStrings["BladeRunners"].ConnectionString;
 
-        public List<Product> GetProductBySeller(int customerId)
+        public List<Product> SelectProductsBySeller(int customerId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {

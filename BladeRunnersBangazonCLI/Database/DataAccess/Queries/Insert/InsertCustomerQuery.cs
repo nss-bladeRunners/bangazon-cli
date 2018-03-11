@@ -4,13 +4,13 @@ using System.Data;
 using System.Configuration;
 
 
-namespace BladeRunnersBangazonCLI
+namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 {
-    class CreateNewCustomer
+    class InsertCustomerQuery
     {
         readonly string _connectionString = ConfigurationManager.ConnectionStrings["BladeRunners"].ConnectionString;
 
-        public bool CreateCustomer(string firstName, string lastName, string street, string city, string state, string zip, string phone, string email)
+        public bool InsertCustomer(string firstName, string lastName, string street, string city, string state, string zip, string phone, string email)
         {
             using (var connection = new SqlConnection(_connectionString))
             {

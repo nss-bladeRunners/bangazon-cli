@@ -39,8 +39,8 @@ namespace BladeRunnersBangazonCLI
                         var customerPhone = newCreateCustomer.GetPhone();
                         var customerEmail = newCreateCustomer.GetEmail();
 
-                        var customerInfo = new CreateNewCustomer();
-                        customerInfo.CreateCustomer(customerFirstName, customerLastName, customerStreet, customerCity, customerState, customerZip, customerPhone, customerEmail);
+                        var customerInfo = new InsertCustomerQuery();
+                        customerInfo.InsertCustomer(customerFirstName, customerLastName, customerStreet, customerCity, customerState, customerZip, customerPhone, customerEmail);
 
                         break;
 
@@ -49,8 +49,8 @@ namespace BladeRunnersBangazonCLI
                         var viewAllCustomers = new AllCustomersView();
                         _selectedCustomer = viewAllCustomers.SelectActiveCustomer();
 
-                        var activeCustomerQuery = new ActiveCustomerQuery();
-                        var activeCustomers = activeCustomerQuery.GetActiveCustomer();
+                        var activeCustomerQuery = new SelectActiveCustomerQuery();
+                        var activeCustomers = activeCustomerQuery.SelectActiveCustomer();
 
                         // BUY AND SELL SUB MENU
                         var customerSubMenu = new CustomerSubMenuView();
@@ -75,8 +75,8 @@ namespace BladeRunnersBangazonCLI
                                         var productTitle = addProductView.GetProdcutTitle();
                                         var productPrice = addProductView.GetProdcutPrice();
                                         var productQuantity = addProductView.GetProdcutQuantity();
-                                        var addProduct = new InsertNewProduct();
-                                        var newProduct = addProduct.AddNewProduct(customerId, productTitle, productPrice, productQuantity);
+                                        var addProduct = new InsertProductQuery();
+                                        var newProduct = addProduct.InsertProduct(customerId, productTitle, productPrice, productQuantity);
                                         break;
 
                                     case '2': //Edit Product
@@ -89,19 +89,19 @@ namespace BladeRunnersBangazonCLI
                                         {
                                             case '1':
                                                 var title = updateProductView.UpdateTitle();
-                                                var updateProductTitleQuery = new UpdateProductQuery();
+                                                var updateProductTitleQuery = new UpdateProductQueries();
                                                 var executeUpdateTitle = updateProductTitleQuery.UpdateProductTitle(selectedProduct.ProductId, title);
                                                 break;
 
                                             case '2':
                                                 var price = updateProductView.UpdatePrice();
-                                                var updateProductPriceQuery = new UpdateProductQuery();
+                                                var updateProductPriceQuery = new UpdateProductQueries();
                                                 var executeUpdatePrice = updateProductPriceQuery.UpdateProductPrice(selectedProduct.ProductId, price);
                                                 break;
 
                                             case '3':
                                                 var quantity = updateProductView.UpdateQuantity();
-                                                var updateProductQuantityQuery = new UpdateProductQuery();
+                                                var updateProductQuantityQuery = new UpdateProductQueries();
                                                 var executeUpdateQuantity = updateProductQuantityQuery.UpdateProductQuantity(selectedProduct.ProductId, quantity);
                                                 break;
 

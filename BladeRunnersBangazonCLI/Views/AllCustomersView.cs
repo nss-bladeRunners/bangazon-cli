@@ -1,5 +1,5 @@
 ﻿using BladeRunnersBangazonCLI.DataAccess.Models;
-using BladeRunnersBangazonCLI.Database.DataAccess.Models;
+using BladeRunnersBangazonCLI.Database.DataAccess.Queries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +11,8 @@ namespace BladeRunnersBangazonCLI.Views
         public ActiveCustomer SelectActiveCustomer()
         {
             var allCustomers = new List<ActiveCustomer>();
-            var activeCustomerQuery = new ActiveCustomerQuery();
-            var customers = activeCustomerQuery.GetActiveCustomer();
+            var activeCustomerQuery = new SelectActiveCustomerQuery();
+            var customers = activeCustomerQuery.SelectActiveCustomer();
 
             var viewAllCustomers = new View();
             viewAllCustomers.AddMenuText("");

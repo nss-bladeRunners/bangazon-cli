@@ -12,8 +12,8 @@ namespace BladeRunnersBangazonCLI.Views
         public Product SelectProduct(ActiveCustomer activeCustomer)
         {
             var ProductList = new List<Product>();
-            var productQuery = new ProductBySellerQuery();
-            var products = productQuery.GetProductBySeller(activeCustomer.CustomerId);
+            var productQuery = new SelectProductsBySellerQuery();
+            var products = productQuery.SelectProductsBySeller(activeCustomer.CustomerId);
 
             var productsForSellerView = new View();
             productsForSellerView.AddMenuText("");

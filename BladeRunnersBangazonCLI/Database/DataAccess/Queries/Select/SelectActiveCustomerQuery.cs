@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace BladeRunnersBangazonCLI.Database.DataAccess.Models
+namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 {
-    class ActiveCustomerQuery
+    class SelectActiveCustomerQuery
     {
         readonly string _connectionString = ConfigurationManager.ConnectionStrings["BladeRunners"].ConnectionString;
 
-        public List<ActiveCustomer> GetActiveCustomer()
+        public List<ActiveCustomer> SelectActiveCustomer()
         {
             using (var connection = new SqlConnection(_connectionString))
             {

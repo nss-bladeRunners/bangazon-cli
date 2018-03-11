@@ -1,9 +1,5 @@
-﻿using BladeRunnersBangazonCLI.Database.Queries;
+﻿using BladeRunnersBangazonCLI.Database.DataAccess.Queries;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BladeRunnersBangazonCLI.Views
 {
@@ -11,13 +7,13 @@ namespace BladeRunnersBangazonCLI.Views
     {
         public void CreatePayment(int activeCustomerId)
         {
-            var db = new PaymentQueries(); 
+            var db = new InsertPaymentQuery(); 
 
             var payment = new PaymentCreationModel();
             payment.Type = GetPaymentType();
             payment.AccountNumber = GetAccountNumber();
             payment.CustomerId = activeCustomerId;
-            db.AddPayment(payment.Type, payment.AccountNumber, payment.CustomerId);
+            db.InsertPayment(payment.Type, payment.AccountNumber, payment.CustomerId);
         }
 
         public string GetPaymentType()
