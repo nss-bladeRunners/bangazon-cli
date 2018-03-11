@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 {
-    class UpdateProductQuery
+    class UpdateProductQueries
     {
         readonly string _connectionString = ConfigurationManager.ConnectionStrings["BladeRunners"].ConnectionString;
 

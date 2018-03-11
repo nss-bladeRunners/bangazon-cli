@@ -5,11 +5,11 @@ using System.Data.SqlClient;
 
 namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 {
-    class InsertNewProduct
+    class InsertProductQuery
     {
         readonly string _connectionString = ConfigurationManager.ConnectionStrings["BladeRunners"].ConnectionString;
 
-        public bool AddNewProduct(int customerId, string productTitle, double productPrice, int prodcutQuantity)
+        public bool InsertProduct(int customerId, string productTitle, double productPrice, int prodcutQuantity)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
