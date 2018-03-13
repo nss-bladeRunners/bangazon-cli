@@ -57,20 +57,20 @@
     <Compile Include="Database\DataAccess\Queries\Insert\InsertProductQuery.cs" />
     <Compile Include="Database\DataAccess\Queries\Update\UpdateProductQueries.cs" />
     <Compile Include="Database\DataAccess\Queries\Select\SelectProductsBySellerQuery.cs" />
-    <Compile Include="Views\AllCustomersView.cs" />
-    <Compile Include="Views\AllProductsForSellerView.cs" />
-    <Compile Include="Views\BuyerMenuView.cs" />
-    <Compile Include="Views\CreateProductView.cs" />
-    <Compile Include="Views\CustomerSubMenuView.cs" />
+    <Compile Include="Views\MainMenu\SelectCustomer\AllCustomersView.cs" />
+    <Compile Include="Views\MainMenu\Seller\EditOrDeleteProduct\AllProductsForSellerView.cs" />
+    <Compile Include="Views\MainMenu\Buyer\BuyerMenuView.cs" />
+    <Compile Include="Views\MainMenu\Seller\AddProduct\CreateProductView.cs" />
+    <Compile Include="Views\MainMenu\SubMenu\CustomerSubMenuView.cs" />
     <Compile Include="Database\DataAccess\Queries\Insert\InsertPaymentQuery.cs" />
     <Compile Include="Database\DataAccess\Models\PaymentCreationModel.cs" />
-    <Compile Include="Views\NewCustomerView.cs" />
+    <Compile Include="Views\MainMenu\NewCustomerView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\MainView.cs" />
-    <Compile Include="Views\PaymentView.cs" />
-    <Compile Include="Views\SellerMenuView.cs" />
-    <Compile Include="Views\UpdateProductView.cs" />
+    <Compile Include="Views\MainMenu\MainView.cs" />
+    <Compile Include="Views\MainMenu\Buyer\PaymentMethod\PaymentView.cs" />
+    <Compile Include="Views\MainMenu\Seller\SellerMenuView.cs" />
+    <Compile Include="Views\MainMenu\Seller\EditOrDeleteProduct\UpdateProductView.cs" />
     <Compile Include="Views\View.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +81,9 @@
     <Content Include="Database\Scripts\CreatePaymentTableWithData.sql" />
     <Content Include="Database\Scripts\CreateProductTable.sql" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\MainMenu\Buyer\Checkout\" />
+    <Folder Include="Views\MainMenu\Buyer\Shop\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
