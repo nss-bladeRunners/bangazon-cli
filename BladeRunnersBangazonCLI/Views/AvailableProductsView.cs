@@ -15,6 +15,7 @@ namespace BladeRunnersBangazonCLI.Views
 
 		public Product AvailableProducts(ActiveCustomer activeCustomer)
 		{
+			var buyerMenu = new BuyerMenuView();
 			var ProductList = new List<Product>();
 			var productQuery = new AvailableProductsQuery();
 			var products = productQuery.GetAvailableProducts(activeCustomer.CustomerId);
@@ -35,6 +36,12 @@ namespace BladeRunnersBangazonCLI.Views
 
 			int productSelected = int.Parse(Console.ReadLine().ToString());
 			productSelection = productSelected;
+
+			if(productSelection == 0)
+			{
+				buyerMenu.BuyerMenu(activeCustomer);
+			}
+			
 			var selectedProduct = ProductList[productSelected - 1];
 			selectedProduct.Quantity--; 
 

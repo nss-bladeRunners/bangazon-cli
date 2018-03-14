@@ -30,34 +30,19 @@ namespace BladeRunnersBangazonCLI.Views
             {
                 case '1'://Shop
 					var shopView = new AvailableProductsView(); //class
-					int orderId = 0;
+					var findOrder = new FindOrdersQuery();
+					var orderId = findOrder.FindOpenOrderByCustomerId(activeCustomer.CustomerId);
+
 					do
 					{
 						var selectedProduct = shopView.AvailableProducts(activeCustomer);
-						var findOrder = new FindOrdersQuery();
-
-						
-						var orderList = new List<Orders>(findOrder.FindOrderByCustomerId(activeCustomer.CustomerId));
 
 						if(orderId == 0)
 						{
-							var i = 0;
-							foreach (var o in orderList) 
-							{
-								i++;
-
-								if(o.PaymentId == "")
-								{
-									orderId = o.OrderId;
-									break; 
-								}
-								else if (i == orderList.Count)
-								{
-									var newOrder = new CreateOrderQuery();
-									orderId = newOrder.CreateOrder(activeCustomer.CustomerId);
-								}
-							}
+							var newOrder = new CreateOrderQuery();
+							orderId = newOrder.CreateOrder(activeCustomer.CustomerId);
 						}
+
 						var productOrder = new AddProductToProductOrderQuery();
 						productOrder.AddProductToProductOrder(selectedProduct.ProductId, orderId);
 					}

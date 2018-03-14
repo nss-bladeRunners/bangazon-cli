@@ -38,7 +38,7 @@ namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 					var order = new Orders
 					{
 						OrderId = int.Parse(reader["OrderId"].ToString()),
-						PaymentId = reader["PaymentId"].ToString(),
+						PaymentId = int.Parse(reader["PaymentId"].ToString()),
 						CustomerId = int.Parse(reader["CustomerId"].ToString())
 					};
 
@@ -50,7 +50,7 @@ namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 			}
 		}
 
-		public List<Orders> FindOrderByCustomerId(int customerId)
+		public int FindOpenOrderByCustomerId(int customerId)
 		{
 			using (var connection = new SqlConnection(_connectionString))
 			{
@@ -74,13 +74,23 @@ namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 				{
 					var order = new Orders();
 					order.OrderId = int.Parse(reader["OrderId"].ToString());
-					order.PaymentId =  reader["PaymentId"].ToString();  // todo returns null sometimes
+					order.PaymentId = string.IsNullOrEmpty(reader["PaymentId"].ToString()) ? (int?)null : int.Parse(reader["PaymentId"].ToString());  // todo returns null sometimes
 					order.CustomerId = int.Parse(reader["CustomerId"].ToString());
 
 					orders.Add(order);
 				}
 
-				return orders;
+				var orderId = 0;
+
+				foreach (var order in orders)
+				{
+					if (order.PaymentId == null)
+					{
+						orderId = order.OrderId;
+						break;
+					}
+				}
+				return orderId;
 
 			}
 		}
