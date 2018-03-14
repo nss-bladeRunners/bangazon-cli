@@ -8,8 +8,8 @@ namespace BladeRunnersBangazonCLI.Database.DataAccess.Models
 {
 	class Orders
 	{
-		int OrderId { get; set; }
-		int PaymentId { get; set; }
-		int CustomerId { get; set; }
+		public int OrderId { get; set; }
+		public string PaymentId { get; set; }
+		public int CustomerId { get; set; }
 	}
 }

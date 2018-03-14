@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BladeRunnersBangazonCLI.Database.DataAccess.Models
 {
-	class ProductOrder
+	public class ProductOrder
 	{
-		int OrderId { get; set; }
-		int ProductId { get; set; }
-		int ProductOrderId { get; set; }
+		public int OrderId { get; set; }
+		public int ProductId { get; set; }
+		public int ProductOrderId { get; set; }
 	}
 }

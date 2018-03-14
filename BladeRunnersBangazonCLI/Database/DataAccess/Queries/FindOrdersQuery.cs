@@ -1,0 +1,88 @@
+﻿using BladeRunnersBangazonCLI.Database.DataAccess.Models;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
+{
+	class FindOrdersQuery
+	{
+		readonly string _connectionString = ConfigurationManager.ConnectionStrings["BladeRunners"].ConnectionString;
+
+		public List<Orders> FindOrderByOrderId(int orderId)
+		{
+			using (var connection = new SqlConnection(_connectionString))
+			{
+
+				var cmd = connection.CreateCommand();
+
+				cmd.CommandText = @"select *
+                                    from orders
+                                    where orderId = @OrderId";
+
+				var OrderIdParam = new SqlParameter("@OrderId", System.Data.SqlDbType.Int);
+				OrderIdParam.Value = orderId;
+				cmd.Parameters.Add(OrderIdParam);
+
+				connection.Open();
+				var reader = cmd.ExecuteReader();
+
+				var orders = new List<Orders>();
+
+				while (reader.Read())
+				{
+					var order = new Orders
+					{
+						OrderId = int.Parse(reader["OrderId"].ToString()),
+						PaymentId = reader["PaymentId"].ToString(),
+						CustomerId = int.Parse(reader["CustomerId"].ToString())
+					};
+
+					orders.Add(order);
+				}
+
+				return orders;
+
+			}
+		}
+
+		public List<Orders> FindOrderByCustomerId(int customerId)
+		{
+			using (var connection = new SqlConnection(_connectionString))
+			{
+
+				var cmd = connection.CreateCommand();
+
+				cmd.CommandText = @"select *
+                                from orders
+                                where customerId = @CustomerId";
+
+				var CustomerIdParam = new SqlParameter("@CustomerId", System.Data.SqlDbType.Int);
+				CustomerIdParam.Value = customerId;
+				cmd.Parameters.Add(CustomerIdParam);
+
+				connection.Open();
+				var reader = cmd.ExecuteReader();
+
+				var orders = new List<Orders>();
+
+				while (reader.Read())
+				{
+					var order = new Orders();
+					order.OrderId = int.Parse(reader["OrderId"].ToString());
+					order.PaymentId =  reader["PaymentId"].ToString();  // todo returns null sometimes
+					order.CustomerId = int.Parse(reader["CustomerId"].ToString());
+
+					orders.Add(order);
+				}
+
+				return orders;
+
+			}
+		}
+	}
+}

@@ -1,6 +1,8 @@
 ﻿using BladeRunnersBangazonCLI.DataAccess.Models;
+using BladeRunnersBangazonCLI.Database.DataAccess.Models;
+using BladeRunnersBangazonCLI.Database.DataAccess.Queries;
 using System;
-
+using System.Collections.Generic;
 
 namespace BladeRunnersBangazonCLI.Views
 
@@ -27,8 +29,41 @@ namespace BladeRunnersBangazonCLI.Views
             switch (userInput.KeyChar)
             {
                 case '1'://Shop
-                    //TODO: Add Shop Function
-                    break;
+					var shopView = new AvailableProductsView(); //class
+					int orderId = 0;
+					do
+					{
+						var selectedProduct = shopView.AvailableProducts(activeCustomer);
+						var findOrder = new FindOrdersQuery();
+
+						
+						var orderList = new List<Orders>(findOrder.FindOrderByCustomerId(activeCustomer.CustomerId));
+
+						if(orderId == 0)
+						{
+							var i = 0;
+							foreach (var o in orderList) 
+							{
+								i++;
+
+								if(o.PaymentId == "")
+								{
+									orderId = o.OrderId;
+									break; 
+								}
+								else if (i == orderList.Count)
+								{
+									var newOrder = new CreateOrderQuery();
+									orderId = newOrder.CreateOrder(activeCustomer.CustomerId);
+								}
+							}
+						}
+						var productOrder = new AddProductToProductOrderQuery();
+						productOrder.AddProductToProductOrder(selectedProduct.ProductId, orderId);
+					}
+					while (shopView.productSelection != 0);
+
+					break;
 
                 case '2':
                     var paymentView = new PaymentView();

@@ -59,21 +59,13 @@ namespace BladeRunnersBangazonCLI
                         switch (userOption.KeyChar)
                         {
                             case '1': //Buyer Menu
-<<<<<<< HEAD
 
-								var buyerMenu = new AddProductToOrderView();
-								buyerMenu.GetProductList();
-
-								
-
-								break;
-=======
                                 var buyerMenu = new BuyerMenuView();
                                 buyerMenu.BuyerMenu(_selectedCustomer);
 
 
                                 break;
->>>>>>> d135168291e11877745c0e2cdda246467c5b9a42
+
                             case '2': //Seller Menu
                                 var sellerMenu = new SellerMenuView();
                                 ConsoleKeyInfo sellerInput = sellerMenu.SellerMenu();
