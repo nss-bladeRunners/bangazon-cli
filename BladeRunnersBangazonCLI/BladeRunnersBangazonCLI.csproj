@@ -48,13 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DataAccess\Models\CompletedOrder.cs" />
     <Compile Include="Database\DataAccess\Models\Product.cs" />
+    <Compile Include="Database\DataAccess\Models\Order.cs" />
     <Compile Include="Database\DataAccess\Queries\Select\SelectActiveCustomerQuery.cs" />
     <Compile Include="Database\DataAccess\Models\ActiveCustomer.cs" />
     <Compile Include="Database\DataAccess\Queries\Insert\InsertCustomerQuery.cs" />
     <Compile Include="Database\DataAccess\Models\NewCustomer.cs" />
     <Compile Include="Database\DataAccess\Queries\Delete\DeleteProductQuery.cs" />
     <Compile Include="Database\DataAccess\Queries\Insert\InsertProductQuery.cs" />
+    <Compile Include="Database\DataAccess\Queries\Select\SelectClosedOrdersByCustomerQuery.cs" />
     <Compile Include="Database\DataAccess\Queries\Update\UpdateProductQueries.cs" />
     <Compile Include="Database\DataAccess\Queries\Select\SelectProductsBySellerQuery.cs" />
     <Compile Include="Views\AllCustomersView.cs" />
@@ -69,6 +72,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\MainView.cs" />
     <Compile Include="Views\PaymentView.cs" />
+    <Compile Include="Views\ReportView.cs" />
+    <Compile Include="Views\RevenueReportView.cs" />
     <Compile Include="Views\SellerMenuView.cs" />
     <Compile Include="Views\UpdateProductView.cs" />
     <Compile Include="Views\View.cs" />
