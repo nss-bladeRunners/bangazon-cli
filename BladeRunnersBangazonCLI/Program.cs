@@ -19,9 +19,10 @@ namespace BladeRunnersBangazonCLI
             while (run)
             {
                 //MAIN MENU
-                ConsoleKeyInfo userInput = mainMenu.MainMenu();
+                string userInput = mainMenu.MainMenu();
+                char input = Convert.ToChar(userInput);
 
-                switch (userInput.KeyChar)
+                switch (input)
                 {
                     case '0':
                         run = false;
@@ -54,9 +55,10 @@ namespace BladeRunnersBangazonCLI
 
                         // BUY AND SELL SUB MENU
                         var customerSubMenu = new CustomerSubMenuView();
-                        ConsoleKeyInfo userOption = customerSubMenu.CustomerSubMenu();
+                        var userOption = customerSubMenu.CustomerSubMenu();
+                        var userRole = Convert.ToChar(userOption);
 
-                        switch (userOption.KeyChar)
+                        switch (userRole)
                         {
                             case '1': //Buyer Menu
                                 var buyerMenu = new BuyerMenuView();
@@ -66,8 +68,10 @@ namespace BladeRunnersBangazonCLI
                                 break;
                             case '2': //Seller Menu
                                 var sellerMenu = new SellerMenuView();
-                                ConsoleKeyInfo sellerInput = sellerMenu.SellerMenu();
-                                switch (sellerInput.KeyChar)
+                                string sellerInput = sellerMenu.SellerMenu();
+                                var sellerChar = Convert.ToChar(sellerInput);
+
+                                switch (sellerChar)
                                 {
                                     case '1'://Add Product
                                         var addProductView = new CreateProductView();
@@ -84,8 +88,9 @@ namespace BladeRunnersBangazonCLI
                                         var selectedProduct = viewAllProductsForSeller.SelectProduct(_selectedCustomer);
                                         var updateProductView = new UpdateProductView();
 
-                                        ConsoleKeyInfo updateProduct = updateProductView.UpdateProductMenu(selectedProduct);
-                                        switch (updateProduct.KeyChar)
+                                        var updateProduct = updateProductView.UpdateProductMenu(selectedProduct);
+                                        var productSelected = Convert.ToChar(updateProduct);
+                                        switch (productSelected)
                                         {
                                             case '1':
                                                 var title = updateProductView.UpdateTitle();

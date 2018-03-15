@@ -3,7 +3,7 @@ namespace BladeRunnersBangazonCLI.Views
 {
     class SellerMenuView
     {
-        public ConsoleKeyInfo SellerMenu()
+        public string SellerMenu()
         {
             View sellerMenu = new View();
 
@@ -15,7 +15,7 @@ namespace BladeRunnersBangazonCLI.Views
             //.AddMenuText("Press 0 to exit.");
 
             Console.Write(sellerMenu.GetFullMenu());
-            ConsoleKeyInfo userOption = Console.ReadKey();
+            var userOption = Console.ReadLine();
             return userOption;
         }
     }

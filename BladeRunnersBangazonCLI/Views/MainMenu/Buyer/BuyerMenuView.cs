@@ -18,13 +18,15 @@ namespace BladeRunnersBangazonCLI.Views
             .AddMenuText("Press 0 to exit.");
 
             Console.Write(buyerMenu.GetFullMenu());
-            ConsoleKeyInfo userOption = Console.ReadKey();
+            var userOption = Console.ReadLine();
             OptionController(userOption, activeCustomer);
         }
 
-        private void OptionController(ConsoleKeyInfo userInput, ActiveCustomer activeCustomer)
+        private void OptionController(string userInput, ActiveCustomer activeCustomer)
         {
-            switch (userInput.KeyChar)
+            var input = Convert.ToChar(userInput);
+
+            switch (input)
             {
                 case '1'://Shop
                     //TODO: Add Shop Function
