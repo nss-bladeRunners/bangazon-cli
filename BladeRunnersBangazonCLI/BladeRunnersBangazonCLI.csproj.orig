@@ -48,31 +48,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DataAccess\Models\CompletedOrder.cs" />
     <Compile Include="Database\DataAccess\Models\Product.cs" />
-    <Compile Include="Database\DataAccess\Queries\ActiveCustomerQuery.cs" />
+    <Compile Include="Database\DataAccess\Models\Order.cs" />
+    <Compile Include="Database\DataAccess\Queries\Select\SelectActiveCustomerQuery.cs" />
     <Compile Include="Database\DataAccess\Models\ActiveCustomer.cs" />
-    <Compile Include="Database\DataAccess\Queries\CreateNewCustomer.cs" />
+    <Compile Include="Database\DataAccess\Queries\Insert\InsertCustomerQuery.cs" />
     <Compile Include="Database\DataAccess\Models\NewCustomer.cs" />
-    <Compile Include="Database\DataAccess\Queries\InsertNewProduct.cs" />
-    <Compile Include="Database\DataAccess\Queries\UpdateProductQuery.cs" />
-    <Compile Include="Database\DataAccess\Queries\ProductBySellerQuery.cs" />
-    <Compile Include="Views\AllCustomersView.cs" />
-<<<<<<< HEAD
-    <Compile Include="Views\AllProductsForSellerView.cs" />
-=======
-    <Compile Include="Views\BuyerMenuView.cs" />
->>>>>>> master
-    <Compile Include="Views\CreateProductView.cs" />
-    <Compile Include="Views\CustomerSubMenuView.cs" />
-    <Compile Include="Database\DataAccess\Queries\PaymentQueries.cs" />
+    <Compile Include="Database\DataAccess\Queries\Delete\DeleteProductQuery.cs" />
+    <Compile Include="Database\DataAccess\Queries\Insert\InsertProductQuery.cs" />
+    <Compile Include="Database\DataAccess\Queries\Select\SelectClosedOrdersByCustomerQuery.cs" />
+    <Compile Include="Database\DataAccess\Queries\Update\UpdateProductQueries.cs" />
+    <Compile Include="Database\DataAccess\Queries\Select\SelectProductsBySellerQuery.cs" />
+    <Compile Include="Views\MainMenu\SelectCustomer\AllCustomersView.cs" />
+    <Compile Include="Views\MainMenu\Seller\EditOrDeleteProduct\AllProductsForSellerView.cs" />
+    <Compile Include="Views\MainMenu\Buyer\BuyerMenuView.cs" />
+    <Compile Include="Views\MainMenu\Seller\AddProduct\CreateProductView.cs" />
+    <Compile Include="Views\MainMenu\SubMenu\CustomerSubMenuView.cs" />
+    <Compile Include="Database\DataAccess\Queries\Insert\InsertPaymentQuery.cs" />
     <Compile Include="Database\DataAccess\Models\PaymentCreationModel.cs" />
-    <Compile Include="Views\NewCustomerView.cs" />
+    <Compile Include="Views\MainMenu\NewCustomerView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Views\MainView.cs" />
     <Compile Include="Views\PaymentView.cs" />
+    <Compile Include="Views\ReportView.cs" />
+    <Compile Include="Views\RevenueReportView.cs" />
     <Compile Include="Views\SellerMenuView.cs" />
     <Compile Include="Views\UpdateProductView.cs" />
+=======
+    <Compile Include="Views\MainMenu\MainView.cs" />
+    <Compile Include="Views\MainMenu\Buyer\PaymentMethod\PaymentView.cs" />
+    <Compile Include="Views\MainMenu\Seller\SellerMenuView.cs" />
+    <Compile Include="Views\MainMenu\Seller\EditOrDeleteProduct\UpdateProductView.cs" />
+>>>>>>> master
     <Compile Include="Views\View.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,7 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\Scripts\CreateDatabase.sql" />
+    <Content Include="Database\Scripts\CreatePaymentTableWithData.sql" />
+    <Content Include="Database\Scripts\CreateProductTable.sql" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\MainMenu\Buyer\Checkout\" />
+    <Folder Include="Views\MainMenu\Buyer\Shop\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
