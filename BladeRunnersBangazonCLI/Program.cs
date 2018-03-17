@@ -124,6 +124,11 @@ namespace BladeRunnersBangazonCLI
 
 										break;
 
+                                    case '4': //Revenue Report
+                                        var revenueReportView = new RevenueReportView();
+                                        revenueReportView.RunRevenueReport(_selectedCustomer); 
+                                        break;
+
 									default: //Default for Seller Menu
 										break;
 								}

@@ -23,7 +23,7 @@ ___/___ /____________________________)________
 _/_____|__(___(__/___/_/___/_(___ _/_____(__)_";
 
 
-        IList<string> _menuItems;
+        internal IList<string> _menuItems;
         int itemNumber = 0;
 
         internal View()
