@@ -1,25 +1,27 @@
-﻿using BladeRunnersBangazonCLI.Database.DataAccess.Queries;
+﻿using BladeRunnersBangazonCLI.DataAccess.Models;
+using BladeRunnersBangazonCLI.Database.DataAccess.Queries;
 using System;
 
 namespace BladeRunnersBangazonCLI.Views
 {
     class PaymentView
     {
-        public void CreatePayment(int activeCustomerId)
+        public void CreatePayment(ActiveCustomer selectedCustomer)
         {
             var db = new InsertPaymentQuery(); 
 
             var payment = new PaymentCreationModel();
-            payment.Type = GetPaymentType();
+            payment.Type = GetPaymentType(selectedCustomer);
             payment.AccountNumber = GetAccountNumber();
-            payment.CustomerId = activeCustomerId;
+            payment.CustomerId = selectedCustomer.CustomerId;
             db.InsertPayment(payment.Type, payment.AccountNumber, payment.CustomerId);
         }
 
-        public string GetPaymentType()
+        public string GetPaymentType(ActiveCustomer selectedCustomer)
         {
             var paymentOption = new View();
             paymentOption.AddMenuText("");
+            paymentOption.AddMenuText($"Current Active Customer: {selectedCustomer.FirstName} {selectedCustomer.LastName}");
             paymentOption.AddMenuText("Enter the payment type:");
 
             Console.Write(paymentOption.GetFullMenu());

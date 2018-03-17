@@ -13,8 +13,9 @@ namespace BladeRunnersBangazonCLI.Views
         {
             View buyerMenu = new View();
 
-            buyerMenu.AddMenuText("")
-            .AddMenuOption("Shop")
+            buyerMenu.AddMenuText("");
+            buyerMenu.AddMenuText($"Current Active Customer: {activeCustomer.FirstName} {activeCustomer.LastName}");
+            buyerMenu.AddMenuOption("Shop")
             .AddMenuOption("Add a payment method")
             .AddMenuOption("Checkout")
             .AddMenuText("Press 0 to exit.");
@@ -54,7 +55,7 @@ namespace BladeRunnersBangazonCLI.Views
 
                 case '2':
                     var paymentView = new PaymentView();
-                    paymentView.CreatePayment(activeCustomer.CustomerId);
+                    paymentView.CreatePayment(activeCustomer);
                     BuyerMenu(activeCustomer);
                     break;
 
