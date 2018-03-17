@@ -55,7 +55,7 @@ namespace BladeRunnersBangazonCLI
 
                         // BUY AND SELL SUB MENU
                         var customerSubMenu = new CustomerSubMenuView();
-                        var userOption = customerSubMenu.CustomerSubMenu();
+                        var userOption = customerSubMenu.CustomerSubMenu(_selectedCustomer);
                         var userRole = Convert.ToChar(userOption);
 
                         switch (userRole)
@@ -64,11 +64,11 @@ namespace BladeRunnersBangazonCLI
                                 var buyerMenu = new BuyerMenuView();
                                 buyerMenu.BuyerMenu(_selectedCustomer);
 
-
                                 break;
+
                             case '2': //Seller Menu
                                 var sellerMenu = new SellerMenuView();
-                                string sellerInput = sellerMenu.SellerMenu();
+                                string sellerInput = sellerMenu.SellerMenu(_selectedCustomer);
                                 var sellerChar = Convert.ToChar(sellerInput);
 
                                 switch (sellerChar)
@@ -76,9 +76,9 @@ namespace BladeRunnersBangazonCLI
                                     case '1'://Add Product
                                         var addProductView = new CreateProductView();
                                         var customerId = (_selectedCustomer.CustomerId);
-                                        var productTitle = addProductView.GetProdcutTitle();
-                                        var productPrice = addProductView.GetProdcutPrice();
-                                        var productQuantity = addProductView.GetProdcutQuantity();
+                                        var productTitle = addProductView.GetProdcutTitle(_selectedCustomer);
+                                        var productPrice = addProductView.GetProdcutPrice(_selectedCustomer);
+                                        var productQuantity = addProductView.GetProdcutQuantity(_selectedCustomer);
                                         var addProduct = new InsertProductQuery();
                                         var newProduct = addProduct.InsertProduct(customerId, productTitle, productPrice, productQuantity);
                                         break;
@@ -88,8 +88,9 @@ namespace BladeRunnersBangazonCLI
                                         var selectedProduct = viewAllProductsForSeller.SelectProduct(_selectedCustomer);
                                         var updateProductView = new UpdateProductView();
 
-                                        var updateProduct = updateProductView.UpdateProductMenu(selectedProduct);
+                                        var updateProduct = updateProductView.UpdateProductMenu(selectedProduct, _selectedCustomer);
                                         var productSelected = Convert.ToChar(updateProduct);
+
                                         switch (productSelected)
                                         {
                                             case '1':

@@ -1,4 +1,5 @@
-﻿using BladeRunnersBangazonCLI.Database.DataAccess.Models;
+﻿using BladeRunnersBangazonCLI.DataAccess.Models;
+using BladeRunnersBangazonCLI.Database.DataAccess.Models;
 using System;
 
 namespace BladeRunnersBangazonCLI.Views
@@ -6,11 +7,12 @@ namespace BladeRunnersBangazonCLI.Views
     class UpdateProductView
     {
 
-        public string UpdateProductMenu(Product selectedProduct)
+        public string UpdateProductMenu(Product selectedProduct, ActiveCustomer selectedCustomer)
         {
             View UpdateProductMenu = new View();
 
             UpdateProductMenu.AddMenuText("");
+            UpdateProductMenu.AddMenuText($"Current Active Customer: {selectedCustomer.FirstName} {selectedCustomer.LastName}");
             UpdateProductMenu.AddMenuOption($"Change Title '{selectedProduct.Title}'")
             .AddMenuOption($"Change Price '{selectedProduct.Price}'")
             .AddMenuOption($"Change Quantity '{selectedProduct.Quantity}'");
