@@ -4,7 +4,7 @@ namespace BladeRunnersBangazonCLI.Views
 {
     class CustomerSubMenuView
     {
-        public ConsoleKeyInfo CustomerSubMenu()
+        public string CustomerSubMenu()
         {
             View mainMenu = new View();
 
@@ -14,7 +14,7 @@ namespace BladeRunnersBangazonCLI.Views
             //.AddMenuText("Press 0 to exit.");
 
             Console.Write(mainMenu.GetFullMenu());
-            ConsoleKeyInfo userOption = Console.ReadKey();
+			var userOption = Console.ReadLine();
             return userOption;
         }
     }

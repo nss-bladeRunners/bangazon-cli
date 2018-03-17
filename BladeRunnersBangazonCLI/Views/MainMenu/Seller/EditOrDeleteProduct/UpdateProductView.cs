@@ -6,18 +6,18 @@ namespace BladeRunnersBangazonCLI.Views
     class UpdateProductView
     {
 
-        public ConsoleKeyInfo UpdateProductMenu(Product selectedProduct)
+        public string UpdateProductMenu(Product selectedProduct)
         {
             View UpdateProductMenu = new View();
 
             UpdateProductMenu.AddMenuText("");
             UpdateProductMenu.AddMenuOption($"Change Title '{selectedProduct.Title}'")
             .AddMenuOption($"Change Price '{selectedProduct.Price}'")
-            .AddMenuOption($"Change Quantity '{selectedProduct.Quantity}'");
-            //.AddMenuText("Press 0 to exit.");
+            .AddMenuOption($"Change Quantity '{selectedProduct.Quantity}'")
+            .AddMenuText("Press 0 to exit.");
 
             Console.Write(UpdateProductMenu.GetFullMenu());
-            ConsoleKeyInfo userOption = Console.ReadKey();
+            var userOption = Console.ReadLine();
             return userOption;
         }
 
