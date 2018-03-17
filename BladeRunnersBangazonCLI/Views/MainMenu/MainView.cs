@@ -14,7 +14,7 @@ namespace BladeRunnersBangazonCLI.Views
             .AddMenuText("Press 0 to exit.");
 
             Console.Write(mainMenu.GetFullMenu());
-            string userOption = Console.ReadLine();
+			string userOption = Console.ReadLine();
             return userOption;
         }
 
