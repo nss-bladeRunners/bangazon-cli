@@ -1,13 +1,15 @@
-﻿using System;
+﻿using BladeRunnersBangazonCLI.DataAccess.Models;
+using System;
 namespace BladeRunnersBangazonCLI.Views
 {
     class SellerMenuView
     {
-        public string SellerMenu()
+        public string SellerMenu(ActiveCustomer selectedCustomer)
         {
             View sellerMenu = new View();
 
             sellerMenu.AddMenuText("");
+            sellerMenu.AddMenuText($"Current Active Customer: {selectedCustomer.FirstName} {selectedCustomer.LastName}");
             sellerMenu.AddMenuOption("Add a Product")
             .AddMenuOption("Edit a Product")
             .AddMenuOption("Delete a Product")
