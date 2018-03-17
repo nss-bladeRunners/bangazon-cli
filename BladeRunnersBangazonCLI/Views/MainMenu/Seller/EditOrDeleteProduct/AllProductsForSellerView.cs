@@ -12,8 +12,8 @@ namespace BladeRunnersBangazonCLI.Views
         public Product SelectProduct(ActiveCustomer activeCustomer)
         {
             var ProductList = new List<Product>();
-            var productQuery = new ProductBySellerQuery();
-            var products = productQuery.GetProductBySeller(activeCustomer.CustomerId);
+            var productQuery = new SelectProductsBySellerQuery();
+            var products = productQuery.SelectProductsBySeller(activeCustomer.CustomerId);
 
             var productsForSellerView = new View();
             productsForSellerView.AddMenuText("");
@@ -24,12 +24,16 @@ namespace BladeRunnersBangazonCLI.Views
                 ProductList.Add(product);
                 productsForSellerView.AddMenuOption($"{product.Title} ");
             };
-            productsForSellerView.AddMenuText("Press 0 to go BACK.");
+            //productsForSellerView.AddMenuText("Press 0 to go BACK.");
 
             Console.Write(productsForSellerView.GetFullMenu());
 
 
             int productSelected = int.Parse(Console.ReadLine().ToString());
+            if (productSelected == 0)
+            {
+                return null;
+            }
             var selectedProduct = ProductList[productSelected - 1];
 
             return ProductList.First<Product>(x => x == selectedProduct);

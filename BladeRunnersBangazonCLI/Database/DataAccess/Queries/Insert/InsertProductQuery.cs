@@ -1,20 +1,21 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 {
-    class InsertNewProduct
+    class InsertProductQuery
     {
         readonly string _connectionString = ConfigurationManager.ConnectionStrings["BladeRunners"].ConnectionString;
 
-        public bool AddNewProduct(int customerId, string productTitle, double productPrice, int prodcutQuantity)
+        public bool InsertProduct(int customerId, string productTitle, double productPrice, int prodcutQuantity)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 var cmd = connection.CreateCommand();
-                cmd.CommandText = @"INSERT INTO Products(SellerId, Title, Price, Quantity)
-                                  VALUES (@SellerId, @Title, @Price, @Quantity)";
+                cmd.CommandText = @"INSERT INTO Products(SellerId, Title, Price, Quantity, CreatedDate)
+                                  VALUES (@SellerId, @Title, @Price, @Quantity, @CreatedDate)";
 
                 var customerIdParam = new SqlParameter("@SellerId", SqlDbType.Int);
                 customerIdParam.Value = customerId;
@@ -31,6 +32,10 @@ namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
                 var productQuantityParam = new SqlParameter("@Quantity", SqlDbType.Int);
                 productQuantityParam.Value = productPrice;
                 cmd.Parameters.Add(productQuantityParam);
+
+                var productDateParam = new SqlParameter("@CreatedDate", SqlDbType.Date);
+                productDateParam.Value = DateTime.Now;
+                cmd.Parameters.Add(productDateParam);
 
                 connection.Open();
 

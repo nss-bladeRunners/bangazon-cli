@@ -2,13 +2,13 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace BladeRunnersBangazonCLI.Database.Queries
+namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 {
-    public class PaymentQueries
+    public class InsertPaymentQuery
     {
         readonly string _connectionString = ConfigurationManager.ConnectionStrings["BladeRunners"].ConnectionString;
 
-        public bool AddPayment(string type, string accountNumber, int customerId)
+        public bool InsertPayment(string type, string accountNumber, int customerId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -46,3 +46,7 @@ namespace BladeRunnersBangazonCLI.Database.Queries
         }
     }
 }
+
+
+
+    

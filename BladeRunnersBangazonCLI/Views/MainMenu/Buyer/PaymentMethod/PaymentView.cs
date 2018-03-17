@@ -1,0 +1,45 @@
+﻿using BladeRunnersBangazonCLI.Database.DataAccess.Queries;
+using System;
+
+namespace BladeRunnersBangazonCLI.Views
+{
+    class PaymentView
+    {
+        public void CreatePayment(int activeCustomerId)
+        {
+            var db = new InsertPaymentQuery(); 
+
+            var payment = new PaymentCreationModel();
+            payment.Type = GetPaymentType();
+            payment.AccountNumber = GetAccountNumber();
+            payment.CustomerId = activeCustomerId;
+            db.InsertPayment(payment.Type, payment.AccountNumber, payment.CustomerId);
+        }
+
+        public string GetPaymentType()
+        {
+            var paymentOption = new View();
+            paymentOption.AddMenuText("");
+            paymentOption.AddMenuText("Enter the payment type:");
+
+            Console.Write(paymentOption.GetFullMenu());
+
+            var paymentType = Console.ReadLine();
+
+            return paymentType;
+        }
+
+        public string GetAccountNumber()
+        {
+            var accountNumberOption = new View();
+            accountNumberOption.AddMenuText("");
+            accountNumberOption.AddMenuText("Enter the account number:");
+
+            Console.Write(accountNumberOption.GetFullMenu());
+
+            var accountNumber = Console.ReadLine();
+
+            return accountNumber;
+        }
+    }
+}
