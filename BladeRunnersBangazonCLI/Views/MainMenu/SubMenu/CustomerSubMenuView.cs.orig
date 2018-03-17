@@ -1,0 +1,26 @@
+﻿using System;
+
+namespace BladeRunnersBangazonCLI.Views
+{
+    class CustomerSubMenuView
+    {
+        public string CustomerSubMenu()
+        {
+            View mainMenu = new View();
+
+            mainMenu.AddMenuText("");
+            mainMenu.AddMenuOption("Buyer Menu")
+            .AddMenuOption("Seller Menu");
+            //.AddMenuText("Press 0 to exit.");
+
+            Console.Write(mainMenu.GetFullMenu());
+<<<<<<< HEAD
+            var userOption = Console.ReadLine();
+=======
+			var userOption = Console.ReadLine();
+>>>>>>> master
+            return userOption;
+        }
+    }
+}
+
