@@ -13,7 +13,7 @@ namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 	{
 		readonly string _connectionString = ConfigurationManager.ConnectionStrings["BladeRunners"].ConnectionString;
 
-		public List<Orders> FindOrderByOrderId(int orderId)
+		public List<Order> FindOrderByOrderId(int orderId)
 		{
 			using (var connection = new SqlConnection(_connectionString))
 			{
@@ -31,11 +31,11 @@ namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 				connection.Open();
 				var reader = cmd.ExecuteReader();
 
-				var orders = new List<Orders>();
+				var orders = new List<Order>();
 
 				while (reader.Read())
 				{
-					var order = new Orders
+					var order = new Order
 					{
 						OrderId = int.Parse(reader["OrderId"].ToString()),
 						PaymentId = int.Parse(reader["PaymentId"].ToString()),
@@ -68,11 +68,11 @@ namespace BladeRunnersBangazonCLI.Database.DataAccess.Queries
 				connection.Open();
 				var reader = cmd.ExecuteReader();
 
-				var orders = new List<Orders>();
+				var orders = new List<Order>();
 
 				while (reader.Read())
 				{
-					var order = new Orders();
+					var order = new Order();
 					order.OrderId = int.Parse(reader["OrderId"].ToString());
 					order.PaymentId = string.IsNullOrEmpty(reader["PaymentId"].ToString()) ? (int?)null : int.Parse(reader["PaymentId"].ToString());  // todo returns null sometimes
 					order.CustomerId = int.Parse(reader["CustomerId"].ToString());
