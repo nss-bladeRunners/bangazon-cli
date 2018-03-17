@@ -48,9 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Database\DataAccess\Models\CompletedOrder.cs" />
     <Compile Include="Database\DataAccess\Models\Product.cs" />
     <Compile Include="Database\DataAccess\Models\Order.cs" />
+=======
+    <Compile Include="Database\DataAccess\Models\Orders.cs" />
+    <Compile Include="Database\DataAccess\Models\Product.cs" />
+    <Compile Include="Database\DataAccess\Models\ProductOrder.cs" />
+>>>>>>> 45637338289dfa20db65fa293e298b1ca51dd3d5
     <Compile Include="Database\DataAccess\Queries\Select\SelectActiveCustomerQuery.cs" />
     <Compile Include="Database\DataAccess\Models\ActiveCustomer.cs" />
     <Compile Include="Database\DataAccess\Queries\Insert\CreateOrderQuery.cs" />
@@ -61,10 +67,14 @@
     <Compile Include="Database\DataAccess\Queries\FindOrdersQuery.cs" />
     <Compile Include="Database\DataAccess\Queries\Delete\DeleteProductQuery.cs" />
     <Compile Include="Database\DataAccess\Queries\Insert\InsertProductQuery.cs" />
+<<<<<<< HEAD
     <Compile Include="Database\DataAccess\Queries\Select\SelectClosedOrdersByCustomerQuery.cs" />
+=======
     <Compile Include="Database\DataAccess\Queries\ProductsListQuery.cs" />
     <Compile Include="Views\MainMenu\Buyer\Shop\AddProductToOrderView.cs" />
+    <Compile Include="Database\DataAccess\Queries\Update\UpdateProductQuery.cs" />
     <Compile Include="Database\DataAccess\Queries\ProductBySellerQuery.cs" />
+>>>>>>> 45637338289dfa20db65fa293e298b1ca51dd3d5
     <Compile Include="Database\DataAccess\Queries\Update\UpdateProductQueries.cs" />
     <Compile Include="Database\DataAccess\Queries\Select\SelectProductsBySellerQuery.cs" />
     <Compile Include="Views\MainMenu\SelectCustomer\AllCustomersView.cs" />
@@ -80,8 +90,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\MainMenu\MainView.cs" />
     <Compile Include="Views\MainMenu\Buyer\PaymentMethod\PaymentView.cs" />
-    <Compile Include="Views\MainMenu\Seller\RevenueReport\ReportView.cs" />
-    <Compile Include="Views\MainMenu\Seller\RevenueReport\RevenueReportView.cs" />
+    <Compile Include="Views\ReportView.cs" />
+    <Compile Include="Views\RevenueReportView.cs" />
     <Compile Include="Views\MainMenu\Seller\SellerMenuView.cs" />
     <Compile Include="Views\MainMenu\Seller\EditOrDeleteProduct\UpdateProductView.cs" />
     <Compile Include="Views\View.cs" />
